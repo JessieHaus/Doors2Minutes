@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
+import { createMuiTheme } from '@material-ui/core/styles';
 
 class Login extends Component {
   constructor(props) {
@@ -41,6 +41,22 @@ class Login extends Component {
     );
   }
 }
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#3f50b5',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  },
+});
 const style = {
   margin: 15,
 };

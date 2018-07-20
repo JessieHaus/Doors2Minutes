@@ -1,4 +1,4 @@
-                    // THIS IS MONGODB STUFF AD
+// THIS IS MONGODB STUFF AD
 require("dotenv").config()
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -15,39 +15,62 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static("./public"));
-  
-                    // 7/15/18
-db = connect(process.env.mongo) 
 
-    function insertData(myObject){
-        db.names.insert(myObject)
-    }
+// 7/15/18
 
-    function getDataBack() {
-        var cursor = db.names.find();
-        while(cursor.hasNext()){
-            printjson(cursor.next());
-        }
-    }
-                    
-// import { 
-//     Stitch,
-//     RemoteMongoClient,
-//     AnonymousCredential
-// } from "mongodb-stitch-browser-sdk";
+newData = ObjectId()
 
-// const client = Stitch.initializeDefaultAppClient('doors_to_minutes-ggkln');
+ObjectID.valueof()
 
-// const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb1').db('<mDB>');
+// getting-started.js
+var mongoose = require('mongoose');
+mongoose.connect(process.env.mongodb);
 
-// client.auth.loginWithCredential(new AnonymousCredential()).then(user => 
-//   db.collection('<COLLECTION>').updateOne({owner_id: client.auth.user.id}, {$set:{number:42}}, {upsert:true})
-// ).then(() => 
-//   db.collection('<COLLECTION>').find({owner_id: client.auth.user.id}, { limit: 100}).asArray()
-// ).then(docs => {
-//     console.log("Found docs", docs)
-//     console.log("[MongoDB Stitch] Connected to Stitch")
-// }).catch(err => {
-//     console.error(err)
-// });
-                    // THIS IS MONGODB STUFF AD
+// function insertData(myObject) {
+//     db.names.insert(myObject)
+// }
+
+// function getDataBack() {
+//     var cursor = db.names.find();
+//     while (cursor.hasNext()) {
+//         printjson(cursor.next());
+//     }
+// }
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
+});
+
+const schema = require("./schema.js")
+
+var Data = mongoose.model('data', schema);
+
+var silence = new Data({ name: 'Silence' });
+console.log(silence.name); // 'Silence'
+
+// NOTE: methods must be added to the schema before compiling it with mongoose.model()
+dataSchema.methods.speak = function () {
+    var input = this.name
+        ? "blank" + this.name
+        : "add stuff here";
+    console.log(input);
+}
+
+var Data = mongoose.model('Data', dataSchema);
+
+var datastuff = new Data({ name: 'stuff' });
+datastuff.speak(); // "blank add stuff here stuff"
+
+datastuff.save(function (err, datastuff) {
+    if (err) return console.error(err);
+    datastuff.speak();
+});
+
+Data.find(function (err, data) {
+    if (err) return console.error(err);
+    console.log(data);
+})
+
+Data.find({ name: /^data/ }, callback);
