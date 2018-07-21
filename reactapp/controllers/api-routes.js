@@ -30,7 +30,7 @@ router.get("/api/cars/", function(req, res) {
         query.CustomerId = req.query.CustomerId;
     }
 
-    db.Car.findAll({
+    db.doors.findAll({
         where: query,
         include: [db.Customer]
     }).then(function(result) {
@@ -58,7 +58,7 @@ router.get("/api/cars/:CustomerId", function(req, res) {
     var query = {};
     query.CustomerId = req.params.CustomerId;
 
-    db.Car.findAll({
+    db.doors.findAll({
         where: query,
         include: [db.Customer]
     }).then(function(result) {
