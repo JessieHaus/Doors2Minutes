@@ -1,5 +1,9 @@
-// THIS IS MONGODB STUFF AD
-require("dotenv").config()
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
 var request = require("request");
@@ -7,70 +11,35 @@ var mongoose = require("mongoose");
 var logger = require("morgan");
 var path = require("path");
 var app = express();
-var PORT = process.env.PORT || 4000;
 
-app.use(logger('dev'));
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 8080;
+
+// Requiring our models for syncing
+var db = require("./models");
+
+// Sets up the Express app to handle data parsing
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(express.static("./public"));
 
-// 7/15/18
+// Static directory
+app.use(express.static("public"));
 
-newData = ObjectId()
+// Routes
+// =============================================================
+require("./routes/html-routes.js")(app);
+require("./routes/author-api-routes.js")(app);
+require("./routes/post-api-routes.js")(app);
 
-ObjectID.valueof()
-
-// getting-started.js
-var mongoose = require('mongoose');
-mongoose.connect(process.env.mongodb);
-
-// function insertData(myObject) {
-//     db.names.insert(myObject)
-// }
-
-// function getDataBack() {
-//     var cursor = db.names.find();
-//     while (cursor.hasNext()) {
-//         printjson(cursor.next());
-//     }
-// }
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-    // we're connected!
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
-
-const schema = require("./schema.js")
-
-var Data = mongoose.model('data', schema);
-
-var silence = new Data({ name: 'Silence' });
-console.log(silence.name); // 'Silence'
-
-// NOTE: methods must be added to the schema before compiling it with mongoose.model()
-dataSchema.methods.speak = function () {
-    var input = this.name
-        ? "blank" + this.name
-        : "add stuff here";
-    console.log(input);
-}
-
-var Data = mongoose.model('Data', dataSchema);
-
-var datastuff = new Data({ name: 'stuff' });
-datastuff.speak(); // "blank add stuff here stuff"
-
-datastuff.save(function (err, datastuff) {
-    if (err) return console.error(err);
-    datastuff.speak();
-});
-
-Data.find(function (err, data) {
-    if (err) return console.error(err);
-    console.log(data);
-})
-
-Data.find({ name: /^data/ }, callback);
