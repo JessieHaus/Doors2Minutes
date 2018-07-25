@@ -20,7 +20,7 @@ week1: [{
 },
 {
     "_id": ObjectId(""),
-    "weekName": "Wedneseday",
+    "weekName": "Wedenseday",
     "date": "",
     "interior": 0,
     "exterior": 0,

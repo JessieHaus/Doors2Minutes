@@ -1,118 +1,76 @@
-//dependencies
+// THIS IS MONGODB STUFF AD
+require("dotenv").config()
 var express = require("express");
 var bodyParser = require("body-parser");
+var request = require("request");
+var mongoose = require("mongoose");
+var logger = require("morgan");
 var path = require("path");
-var passport = require('passport');
-var exphbs = require("express-handlebars");
-var session = require('express-session');
-var logger = require("morgan")
-var mongojs = require("mongojs");
-
-
-var PORT = process.env.PORT || 8080;
-
-//initialization
 var app = express();
+var PORT = process.env.PORT || 4000;
 
-app.use(logger("dev"));
-app.use(
-    bodyParser.urlencoded({
-        extended: false
-    })
-);
-
-
-//app.use(express.static("public"));
-
-//Mongojs configuration
-//var databaseUrl = "warmup";
-//var collections = ["books"];
-
-//Hook our mongojs config to the db var
-//var db = mongojs(databaseUrl, collections);
-//db.on("error", function(error){
-   // console.log("Database Error:", error);
-//});
-
-//Routes
-
-//app.post("./bin/www", function (req, res){
-    //save the request body as an object called book
-    //var book = req.body; 
-
-// boolean value of false (have to have it otherwise ajax with mess it up) 
-    //book.read = false;
-
-    //save the book object as an entry into the books collection in mongo
-    //db.books.save(book, function(error, saved) {
-
-        //show any errors
-       // if(errors) {
-            //console.log(error);
-       // }
-       // else{
-            //otherwise, send the response to the client
-           // res.send(saved);
-  //  }
-//});
-//});
-
-//Find 
-
-
-
-
-
-//static content(public folder)
-app.use(express.static(path.join(__dirname, '/public')));
-
-//models for syncing
-var db = require("./models");
-
-//parsing
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(logger('dev'));
 app.use(bodyParser.json());
-
-//auth
-app.use(session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
+app.use(bodyParser.urlencoded({
+    extended: true
 }));
+app.use(express.static("./public"));
 
-app.use(passport.initialize());
+// 7/15/18
 
-app.use(passport.session());
+newData = ObjectId()
 
+ObjectID.valueof()
 
-//routing
-var apiRoutes = require("./controllers/api-routes");
-var htmlRoutes = require("./controllers/html-routes");
-var authRoutes = require("./controllers/auth-routes")(app, passport);
-app.use("/", apiRoutes);
-app.use("/", htmlRoutes);
-// app.use("/", authRoutes);
+// getting-started.js
+var mongoose = require('mongoose');
+mongoose.connect(process.env.mongodb);
 
-//views
-var hbs = exphbs.create({defaultLayout: 'main' });
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+// function insertData(myObject) {
+//     db.names.insert(myObject)
+// }
 
+// function getDataBack() {
+//     var cursor = db.names.find();
+//     while (cursor.hasNext()) {
+//         printjson(cursor.next());
+//     }
+// }
 
-//load passport strategies
-require("./config/passport.js")(passport, db.Customer);
-
-
-
-//listener
-db.sequelize.sync({}).then(function() {
-app.listen(PORT, function(){
-    console.log("App listening on http://localhost:" + PORT);
-});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
 });
 
-// Listen on port 3000
-app.listen(3000, function() {
-    console.log("App running on port 3000!");
-  });
-  
+const schema = require("./schema.js")
+
+var Data = mongoose.model('data', schema);
+
+var silence = new Data({ name: 'Silence' });
+console.log(silence.name); // 'Silence'
+
+// NOTE: methods must be added to the schema before compiling it with mongoose.model()
+dataSchema.methods.speak = function () {
+    var input = this.name
+        ? "blank" + this.name
+        : "add stuff here";
+    console.log(input);
+}
+
+var Data = mongoose.model('Data', dataSchema);
+
+var datastuff = new Data({ name: 'stuff' });
+datastuff.speak(); // "blank add stuff here stuff"
+
+datastuff.save(function (err, datastuff) {
+    if (err) return console.error(err);
+    datastuff.speak();
+});
+
+Data.find(function (err, data) {
+    if (err) return console.error(err);
+    console.log(data);
+})
+
+Data.find({ name: /^data/ }, callback);
