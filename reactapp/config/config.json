@@ -1,20 +1,19 @@
 {
     "development": {
       "username": "root",
-      "database": "cars_db",
+      "database": "doors",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "test": {
       "username": "root",
-      "database": "database_test",
+      "database": "doors",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "production": {
       "username": "root",
-      "password": null,
-      "database": "database_production",
+      "database": "doors",
       "host": "127.0.0.1",
       "dialect": "mysql"
     }

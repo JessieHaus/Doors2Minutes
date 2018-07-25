@@ -1,6 +1,6 @@
 CREATE DATABASE doors;
 USE doors;
-CREATE TABLE Monday1 (
+CREATE TABLE valuenowmonint (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -8,7 +8,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Tuesday1 (
+CREATE TABLE valuenowmonsf (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -16,7 +16,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Wednesday1 (
+CREATE TABLE valuenowmone (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -24,7 +24,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Thursday1 (
+CREATE TABLE valuenowmonc (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -32,7 +32,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Friday1 (
+CREATE TABLE valuenowtuesint (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -40,7 +40,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Monday2 (
+CREATE TABLE valuenowtuessf (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -48,7 +48,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Tuesday2 (
+CREATE TABLE valuenowtuese (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -56,7 +56,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Wednesday2 (
+CREATE TABLE valuenowtuesc (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -64,7 +64,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Thursday2 (
+CREATE TABLE valuenowwedint (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -72,7 +72,7 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
-CREATE TABLE Friday2 (
+CREATE TABLE valuenowwedsf (
 item_id int not null AUTO_INCREMENT,
 interior integer(50) not null,
 exterior integer(50) not null,
@@ -80,6 +80,88 @@ steel_fiber integer(50) not null,
 cut integer(50) not null,
 primary key (item_id)
 );
+CREATE TABLE valuenowwede (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowwedc (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowthursint (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowthurssf (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowthurse (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowthursc (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowfriint (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowfrisf (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowfrie (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+CREATE TABLE valuenowfric (
+item_id int not null AUTO_INCREMENT,
+interior integer(50) not null,
+exterior integer(50) not null,
+steel_fiber integer(50) not null,
+cut integer(50) not null,
+primary key (item_id)
+);
+
+
 
 select * from doors;
 INSERT INTO week ()

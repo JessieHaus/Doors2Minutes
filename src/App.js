@@ -1,3 +1,5 @@
+import Auth from './auth';
+import Home from "./Home";
 import React, { Component } from "react";
 import "./App.css";
 import theme from "@instructure/ui-themes/lib/canvas";
@@ -6,6 +8,15 @@ import Heading from "@instructure/ui-elements/lib/components/Heading";
 import Progress from "@instructure/ui-elements/lib/components/Progress";
 import Text from "@instructure/ui-elements/lib/components/Text";
 import Button from "@instructure/ui-buttons/lib/components/Button";
+
+ 
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <Home/>
+const auth = new Auth();
+auth.login();   
 
 class App extends Component {
   constructor(props) {
@@ -287,6 +298,7 @@ class App extends Component {
 
   render() {
     return (
+      
       <div className="week1">
         <Heading level="h1" margin="medium 0 0 small">
           Week July 23rd - 27th
@@ -1237,3 +1249,12 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+      
+
+
+
+
+
