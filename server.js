@@ -5,12 +5,63 @@ var path = require("path");
 var passport = require('passport');
 var exphbs = require("express-handlebars");
 var session = require('express-session');
+var logger = require("morgan")
+var mongojs = require("mongojs");
 
 
 var PORT = process.env.PORT || 8080;
 
 //initialization
 var app = express();
+
+app.use(logger("dev"));
+app.use(
+    bodyParser.urlencoded({
+        extended: false
+    })
+);
+
+
+app.use(express.static("public"));
+
+//Mongojs configuration
+var databaseUrl = "warmup";
+var collections = ["books"];
+
+//Hook our mongojs config to the db var
+var db = mongojs(databaseUrl, collections);
+db.on("error", function(error){
+    console.log("Database Error:", error);
+});
+
+//Routes
+
+app.post("./bin/www", function (req, res){
+    //save the request body as an object called book
+    var book = req.body; 
+
+// boolean value of false (have to have it otherwise ajax with mess it up) 
+    book.read = false;
+
+    //save the book object as an entry into the books collection in mongo
+    db.books.save(book, function(error, saved) {
+
+        //show any errors
+        if(errors) {
+            console.log(error);
+        }
+        else{
+            //otherwise, send the response to the client
+            res.send(saved);
+    }
+});
+});
+
+
+
+
+
+
 
 //static content(public folder)
 app.use(express.static(path.join(__dirname, '/public')));
