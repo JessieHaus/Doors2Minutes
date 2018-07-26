@@ -1,1 +1,0 @@
-INSERT INTO doors (Monday1,) VALUES ("", true);

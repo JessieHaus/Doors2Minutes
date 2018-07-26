@@ -11,9 +11,17 @@
     "mongoose": "^5.2.4",
     "morgan": "^1.9.0",
     "react": "^16.4.1",
+    "react-daterange-picker": "github:wojtekmaj/react-daterange-picker",
     "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "@instructure/ui-buttons": "^5.19.0",
+    "@instructure/ui-elements": "^5.19.0",
+    "@instructure/ui-forms": "^5.19.0",
+    "@instructure/ui-icons": "^5.19.0",
+    "@instructure/ui-themeable": "^5.19.0",
+    "@instructure/ui-themes": "^5.19.0"
   },
   "proxy": "http://localhost:4000/",
   "scripts": {
