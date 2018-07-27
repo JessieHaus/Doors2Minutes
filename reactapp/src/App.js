@@ -1,19 +1,13 @@
 import React from "react";
 
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Table1 from "./components/Tables/Tables";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Table1 from "./components/Tables/Tables.js";
 ;
 
 const App = () => (
-  
-    <div>
-
-      {/* <h1>Work</h1> */}
-        <Table1 />
-
-
-    </div>
+  <div>
+    <Table1 />
+  </div>
 
 );
 

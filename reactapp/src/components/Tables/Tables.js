@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-
-import theme from '@instructure/ui-themes/lib/canvas';
-
+import theme from "@instructure/ui-themes/lib/canvas";
 import Table from "@instructure/ui-elements/lib/components/Table";
-
 import Heading from "@instructure/ui-elements/lib/components/Heading";
 import Progress from "@instructure/ui-elements/lib/components/Progress";
 import Text from "@instructure/ui-elements/lib/components/Text";
 import Button from "@instructure/ui-buttons/lib/components/Button";
-
-
-theme.use()
-
+import './Tables.css';
 
 
 class Table1 extends Component {
-
-      state = {
+    constructor(props) {
+      super(props);
+      this.state = {
         //Monday
         valuenowmonint: 0,
         valuenowmonsf: 0,
@@ -44,7 +39,7 @@ class Table1 extends Component {
         valuenowfric: 0,
         show: true
       };
-    
+    }
     //Monday
     IncrementItemMonInt = () => {
       if (this.state.valuenowmonint < 60)
@@ -293,951 +288,955 @@ class Table1 extends Component {
   
     render() {
       return (
-        <div className="week1">
-          <Heading level="h1" margin="medium 0 0 small">
-            Week July 23rd - 27th
-          </Heading>
-          <Table border="top" margin="medium 0 0 0" striped="rows" caption="">
-            <tbody>
-              <tr>
-                <th scope="col">Monday</th>
-                <td>
-                  Interior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowmonint, valueMax) {
-                      return valuenowmonint + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowmonint, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowmonint}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowmonint}
-                    valueMax={60}
-                  />
-                  <form>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemMonInt}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemMonInt}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Steel Fiber:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowmonsf, valueMax) {
-                      return valuenowmonsf + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowmonsf, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowmonsf}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowmonsf}
-                    valueMax={32}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemMonSF}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemMonSF}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Exterior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowmone, valueMax) {
-                      return valuenowmone + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowmone, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowmone}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowmone}
-                    valueMax={19}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemMonE}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemMonE}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Cut:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowmonc, valueMax) {
-                      return valuenowmonc + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowmonc, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowmonc}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowmonc}
-                    valueMax={10}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemMonC}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemMonC}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <th scope="col">Tuesday</th>
-                <td>
-                  Interior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowtuesint, valueMax) {
-                      return valuenowtuesint + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowtuesint, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowtuesint}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowtuesint}
-                    valueMax={60}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemTuesInt}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemTuesInt}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Steel Fiber:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowtuessf, valueMax) {
-                      return valuenowtuessf + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowtuessf, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowtuessf}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowtuessf}
-                    valueMax={32}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemTuesSF}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemTuesSF}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Exterior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowtuese, valueMax) {
-                      return valuenowtuese + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowtuese, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowtuese}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowtuese}
-                    valueMax={19}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemTuesE}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemTuesE}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Cut:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowtuesc, valueMax) {
-                      return valuenowtuesc + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowtuesc, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowtuesc}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowtuesc}
-                    valueMax={10}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemTuesC}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemTuesC}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <th scope="col">Wednesday</th>
-                <td>
-                  Interior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowwedint, valueMax) {
-                      return valuenowwedint + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowwedint, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowwedint}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowwedint}
-                    valueMax={60}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemWedInt}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemWedInt}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Steel Fiber:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowedsf, valueMax) {
-                      return valuenowedsf + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowedsf, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowedsf}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowwedsf}
-                    valueMax={32}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemWedSF}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemWedSF}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Exterior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowede, valueMax) {
-                      return valuenowede + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowede, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowede}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowwede}
-                    valueMax={19}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemWedE}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemWedE}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Cut:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowwedc, valueMax) {
-                      return valuenowwedc + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowwedc, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowwedc}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowwedc}
-                    valueMax={10}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemWedC}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemWedC}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <th scope="col">Thursday</th>
-                <td>
-                  Interior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowthursint, valueMax) {
-                      return valuenowthursint + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowthursint, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowthursint}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowthursint}
-                    valueMax={60}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemThursInt}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemThursInt}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Steel Fiber:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowthurssf, valueMax) {
-                      return valuenowthurssf + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowthurssf, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowthurssf}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowthurssf}
-                    valueMax={32}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemThursSF}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemThursSF}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Exterior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowthurse, valueMax) {
-                      return valuenowthurse + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowthurse, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowthurse}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowthurse}
-                    valueMax={19}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemThursE}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemThursE}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Cut:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowthursc, valueMax) {
-                      return valuenowthursc + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowthursc, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowthursc}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowthursc}
-                    valueMax={10}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemThursC}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemThursC}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <th scope="col">Friday</th>
-                <td>
-                  Interior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowfriint, valueMax) {
-                      return valuenowfriint + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowfriint, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowfriint}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowfriint}
-                    valueMax={60}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemFriInt}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemFriInt}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Steel Fiber:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowfrisf, valueMax) {
-                      return valuenowfrisf + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowfrisf, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowfrisf}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowfrisf}
-                    valueMax={32}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemFriSF}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemFriSF}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Exterior:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowfrie, valueMax) {
-                      return valuenowfrie + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowfrie, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowfrie}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowfrie}
-                    valueMax={19}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 large"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemFriE}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemFriE}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-                <td>
-                  Cut:{" "}
-                  <Progress
-                    label="Percent complete"
-                    formatValueText={function(valuenowfric, valueMax) {
-                      return valuenowfric + " out of " + valueMax;
-                    }}
-                    formatDisplayedValue={function(valuenowfric, valueMax) {
-                      return (
-                        <span>
-                          <Text color="primary" size="medium" weight="bold">
-                            {valuenowfric}
-                          </Text>
-                          <br />
-                          <Text color="secondary" size="x-small">
-                            of{" "}
-                          </Text>
-                          <Text color="secondary" size="small">
-                            {valueMax}
-                          </Text>
-                        </span>
-                      );
-                    }}
-                    size="small"
-                    variant="bar"
-                    valueNow={this.state.valuenowfric}
-                    valueMax={10}
-                  />
-                  <form onSubmit={this.addOrRemoveSet}>
-                    <Button
-                      size="small"
-                      margin="0 small 0 medium"
-                      variant="circle-ghost"
-                      onClick={this.IncrementItemFriC}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="circle-ghost"
-                      onClick={this.DecreaseItemFriC}
-                    >
-                      -
-                    </Button>
-                  </form>
-                </td>
-              </tr>
-            </tbody>
-          </Table>
-          {/* <Heading>Week July 23rd - 27th</Heading> */}
-        </div>
+        <div className="container">
+            <div className="week1">
+            <div className="heading">
+              <Heading level="h1" margin="medium 0 0 small">
+                Week July 23rd - 27th
+              </Heading>
+            </div>
+              <Table border="top" margin="medium 0 0 0" striped="rows" caption="">
+                <tbody>
+                  <tr>
+                    <th scope="col">Monday</th>
+                    <td>
+                      Interior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowmonint, valueMax) {
+                          return valuenowmonint + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowmonint, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowmonint}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowmonint}
+                        valueMax={60}
+                      />
+                      <form>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemMonInt}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemMonInt}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Steel Fiber:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowmonsf, valueMax) {
+                          return valuenowmonsf + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowmonsf, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowmonsf}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowmonsf}
+                        valueMax={32}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemMonSF}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemMonSF}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Exterior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowmone, valueMax) {
+                          return valuenowmone + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowmone, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowmone}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowmone}
+                        valueMax={19}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemMonE}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemMonE}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Cut:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowmonc, valueMax) {
+                          return valuenowmonc + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowmonc, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowmonc}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowmonc}
+                        valueMax={10}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemMonC}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemMonC}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Tuesday</th>
+                    <td>
+                      Interior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowtuesint, valueMax) {
+                          return valuenowtuesint + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowtuesint, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowtuesint}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowtuesint}
+                        valueMax={60}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemTuesInt}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemTuesInt}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Steel Fiber:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowtuessf, valueMax) {
+                          return valuenowtuessf + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowtuessf, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowtuessf}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowtuessf}
+                        valueMax={32}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemTuesSF}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemTuesSF}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Exterior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowtuese, valueMax) {
+                          return valuenowtuese + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowtuese, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowtuese}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowtuese}
+                        valueMax={19}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemTuesE}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemTuesE}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Cut:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowtuesc, valueMax) {
+                          return valuenowtuesc + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowtuesc, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowtuesc}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowtuesc}
+                        valueMax={10}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemTuesC}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemTuesC}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Wednesday</th>
+                    <td>
+                      Interior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowwedint, valueMax) {
+                          return valuenowwedint + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowwedint, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowwedint}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowwedint}
+                        valueMax={60}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemWedInt}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemWedInt}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Steel Fiber:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowedsf, valueMax) {
+                          return valuenowedsf + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowedsf, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowedsf}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowwedsf}
+                        valueMax={32}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemWedSF}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemWedSF}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Exterior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowede, valueMax) {
+                          return valuenowede + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowede, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowede}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowwede}
+                        valueMax={19}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemWedE}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemWedE}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Cut:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowwedc, valueMax) {
+                          return valuenowwedc + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowwedc, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowwedc}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowwedc}
+                        valueMax={10}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemWedC}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemWedC}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Thursday</th>
+                    <td>
+                      Interior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowthursint, valueMax) {
+                          return valuenowthursint + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowthursint, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowthursint}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowthursint}
+                        valueMax={60}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemThursInt}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemThursInt}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Steel Fiber:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowthurssf, valueMax) {
+                          return valuenowthurssf + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowthurssf, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowthurssf}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowthurssf}
+                        valueMax={32}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemThursSF}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemThursSF}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Exterior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowthurse, valueMax) {
+                          return valuenowthurse + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowthurse, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowthurse}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowthurse}
+                        valueMax={19}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemThursE}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemThursE}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Cut:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowthursc, valueMax) {
+                          return valuenowthursc + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowthursc, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowthursc}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowthursc}
+                        valueMax={10}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemThursC}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemThursC}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Friday</th>
+                    <td>
+                      Interior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowfriint, valueMax) {
+                          return valuenowfriint + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowfriint, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowfriint}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowfriint}
+                        valueMax={60}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemFriInt}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemFriInt}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Steel Fiber:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowfrisf, valueMax) {
+                          return valuenowfrisf + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowfrisf, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowfrisf}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowfrisf}
+                        valueMax={32}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemFriSF}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemFriSF}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Exterior:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowfrie, valueMax) {
+                          return valuenowfrie + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowfrie, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowfrie}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowfrie}
+                        valueMax={19}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 large"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemFriE}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemFriE}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                    <td>
+                      Cut:{" "}
+                      <Progress
+                        label="Percent complete"
+                        formatValueText={function(valuenowfric, valueMax) {
+                          return valuenowfric + " out of " + valueMax;
+                        }}
+                        formatDisplayedValue={function(valuenowfric, valueMax) {
+                          return (
+                            <span>
+                              <Text color="primary" size="medium" weight="bold">
+                                {valuenowfric}
+                              </Text>
+                              <br />
+                              <Text color="secondary" size="x-small">
+                                of{" "}
+                              </Text>
+                              <Text color="secondary" size="small">
+                                {valueMax}
+                              </Text>
+                            </span>
+                          );
+                        }}
+                        size="small"
+                        variant="bar"
+                        valueNow={this.state.valuenowfric}
+                        valueMax={10}
+                      />
+                      <form onSubmit={this.addOrRemoveSet}>
+                        <Button
+                          size="small"
+                          margin="0 small 0 medium"
+                          variant="circle-ghost"
+                          onClick={this.IncrementItemFriC}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="circle-ghost"
+                          onClick={this.DecreaseItemFriC}
+                        >
+                          -
+                        </Button>
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+              {/* <Heading>Week July 23rd - 27th</Heading> */}
+            </div>
+          </div>  
       );
     }
   }
